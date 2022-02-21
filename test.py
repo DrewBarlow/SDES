@@ -185,8 +185,8 @@ def d_dsdes_ciphertext_to_ascii() -> str:
         IV
     )))[2:]
 
-    #return f"BROKEN FOR NOW! {text}"
-    return "".join([chr(int(text[i:i+1], 16)) for i in range(0, len(text), 2)])
+    return f"BROKEN FOR NOW! {text}"
+    #return "".join([chr(int(text[i:i+1], 16)) for i in range(0, len(text), 2)])
 
 def main() -> None:
     pf = lambda b: "passed" if b else "failed"
