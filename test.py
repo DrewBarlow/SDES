@@ -184,9 +184,10 @@ def d_dsdes_ciphertext_to_ascii() -> str:
         KEY2_FOUND,
         IV
     )))[2:]
+    print(text)
 
-    return f"BROKEN FOR NOW! {text}"
-    #return "".join([chr(int(text[i:i+1], 16)) for i in range(0, len(text), 2)])
+    #return "BROKEN!"
+    return bytes.fromhex(text).decode("ASCII")
 
 def main() -> None:
     pf = lambda b: "passed" if b else "failed"
