@@ -17,7 +17,7 @@
   * Key 2: `0b0101010011`.
 
 #### 3 | ...Time taken to determine the key (meet in the middle)
-  * ???
+  * 2.902s.
 
 #### 4 | ...Time it takes to uncover the key (brute force)
   * 8176s; or,
@@ -28,8 +28,8 @@
   * `♥♀♥☻\n♦\n♣☺♂♥♠♂♫♣♂♂☺\n♥☻♀\n☺☼☼`
 
 #### 6. A list of the S-DES weak keys
-  * `0b0000000000`
-  * `0b1111111111`
-  * `0b0111101000`
-  * `0b1000010111`
+  * `0b0000000000`.
+  * `0b1111111111`.
+  * `0b0111101000`.
+  * `0b1000010111`.
   * ...???
