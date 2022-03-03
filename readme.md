@@ -25,11 +25,11 @@
   * 2h16m16s.
 
 #### 5 | Decryption of the text encrypted using CBC mode...
-  * `♥♀♥☻\n♦\n♣☺♂♥♠♂♫♣♂♂☺\n♥☻♀\n☺☼☼`
+  * `"Congratulations on your success!"`
+  * Code for this can be found in test.py at line 178.
 
 #### 6. A list of the S-DES weak keys
-  * `0b0000000000`.
-  * `0b1111111111`.
-  * `0b0111101000`.
+  * `0b0000000000`; and,
+  * `0b1111111111`; and,
+  * `0b0111101000`; and,
   * `0b1000010111`.
-  * ...???
