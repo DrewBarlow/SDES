@@ -151,20 +151,21 @@ def d_dsdes_brute_force_key_check() -> bool:
     return True
 
 def primitive_modes_tests() -> bool:
-    KEY1 = 0b0010000101
-    KEY2 = 0b1000110000
-    PT = 0x4c4d46414f4f4f
+    KEY1: int = 0b0010000101
+    KEY2: int = 0b1000110000
+    PT: int = 0x4c4d46414f4f4f
+    IV: int = 0x9c
 
     CTSECB = sdes_encipher_ECB(PT, KEY1)
     CTDECB = dsdes_encipher_ECB(PT, KEY1, KEY2)
-    CTSCBC = sdes_encipher_CBC(PT, KEY1, 0x9c)
-    CTDCBC = dsdes_encipher_CBC(PT, KEY1, KEY2, 0x9c)
+    CTSCBC = sdes_encipher_CBC(PT, KEY1, IV)
+    CTDCBC = dsdes_encipher_CBC(PT, KEY1, KEY2, IV)
 
     deciphered: List[int] = [
         sdes_decipher_ECB(CTSECB, KEY1),
         dsdes_decipher_ECB(CTDECB, KEY1, KEY2),
-        sdes_decipher_CBC(CTSCBC, KEY1, 0x9c),
-        dsdes_decipher_CBC(CTDCBC, KEY1, KEY2, 0x9c)
+        sdes_decipher_CBC(CTSCBC, KEY1, IV),
+        dsdes_decipher_CBC(CTDCBC, KEY1, KEY2, IV)
     ]
 
     for dec in deciphered:
@@ -184,9 +185,7 @@ def d_dsdes_ciphertext_to_ascii() -> str:
         KEY2_FOUND,
         IV
     )))[2:]
-    print(text)
 
-    #return "BROKEN!"
     return bytes.fromhex(text).decode("ASCII")
 
 def main() -> None:
