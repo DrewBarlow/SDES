@@ -7,6 +7,10 @@ from typing import Callable
 KEY_SIZE: int = 10
 BLOCK_SIZE: int = 8
 
+# NOTE: Anytime [2:] is present on a string,
+#       I am cutting off the `0x` or `0b` from
+#       the hex() and bin() functions.
+
 # main encipher fxn for single des
 def __sdes_encipher(plaintext: int, key: int) -> int:
     pt_arr: BitArray = BitArray(bin(plaintext))
@@ -97,7 +101,7 @@ def sdes_decipher_CBC(ciphertext: int, key: int, iv: int) -> int:
     prev_text: int = iv
     full_text: str = ""
 
-    # split the text into blocks
+    # split the text into blocks (bytes)
     # swap the order of XORing from above
     for block in __blocks(ciphertext):
         full_text += __pad_text(str(hex(prev_text ^ __sdes_decipher(block, key)))[2:])
@@ -107,9 +111,31 @@ def sdes_decipher_CBC(ciphertext: int, key: int, iv: int) -> int:
 
 # CBC mode for DSDES
 def dsdes_encipher_CBC(plaintext: int, key_1: int, key_2: int, iv: int) -> int:
-    sdes_key_1: int = sdes_encipher_CBC(plaintext, key_1, iv)
-    return sdes_encipher_CBC(sdes_key_1, key_2, iv)
+    prev_text: int = iv
+    full_text: str = ""
+
+    # split the text into blocks
+    # XOR the previous block's output text with the current block,
+    # then append the result to the text string
+    for block in __blocks(plaintext):
+        prev_text = dsdes_encipher_ECB(
+            block ^ prev_text, key_1, key_2
+        )
+        full_text += __pad_text(str(hex(prev_text))[2:])
+
+    return int(full_text, 16)
 
 def dsdes_decipher_CBC(ciphertext: int, key_1: int, key_2: int, iv: int) -> int:
-    sdes_key_2: int = sdes_decipher_CBC(ciphertext, key_2, iv)
-    return sdes_decipher_CBC(sdes_key_2, key_1, iv)
+    prev_text: int = iv
+    full_text: str = ""
+
+    # split the text into blocks (bytes)
+    # swap the order of XORing from above
+    for block in __blocks(ciphertext):
+        full_text += __pad_text(str(hex(
+            prev_text ^ dsdes_decipher_ECB(block, key_1, key_2)
+        ))[2:])
+        prev_text = block
+
+    return int(full_text, 16)
+    
