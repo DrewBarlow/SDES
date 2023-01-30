@@ -1,7 +1,4 @@
-# CMSC 687, Project 1
-## Drew Barlow (JU08810)
-
-### MAIN FUNCTIONS:
+## MAIN FUNCTIONS:
   * sdes_encipher_ECB(plaintext, key)
   * sdes_decipher_ECB(ciphertext, key)
   * dsdes_encipher_ECB(plaintext, key1, key2)
@@ -11,24 +8,24 @@
   * dsdes_encipher_CBC(plaintext, key1, key2, iv)
   * dsdes_decipher_CBC(ciphertext, key1, key2, iv)
 
-### ANSWERS TO QUESTIONS:
-#### 2 | Key(s) used to produce the ciphertext in the known pairs
+## Answers to Questions
+### Keys used to produce the ciphertext in the known pairs:
   * Key 1: `0b1100111111`; and,
   * Key 2: `0b0101010011`.
 
-#### 3 | ...Time taken to determine the key (meet in the middle)
+### Time taken to determine the key pair (meet in the middle):
   * 2.902s.
 
-#### 4 | ...Time it takes to uncover the key (brute force)
+### Time taken to determine the key pair (brute force):
   * 8176s; or,
   * 136m16s; or,
   * 2h16m16s.
 
-#### 5 | Decryption of the text encrypted using CBC mode...
+### Decryption of the text encrypted using CBC mode:
   * `"Congratulations on your success!"`
   * Code for this can be found in test.py at line 178.
 
-#### 6. A list of the S-DES weak keys
+### A list of the S-DES weak keys:
   * `0b0000000000`; and,
   * `0b1111111111`; and,
   * `0b0111101000`; and,
