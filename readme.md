@@ -8,6 +8,10 @@
   * dsdes_encipher_CBC(plaintext, key1, key2, iv)
   * dsdes_decipher_CBC(ciphertext, key1, key2, iv)
 
+## NOTE:
+### I did not do official packaging with setuptools or anything.
+### Therefore, I recommend either copying `sdes/` into `attacks/` or making a symlink.
+
 ## Answers to Questions
 ### Keys used to produce the ciphertext in the known pairs:
   * Key 1: `0b1100111111`; and,
