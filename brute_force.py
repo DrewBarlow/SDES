@@ -27,7 +27,7 @@ def main() -> None:
     end: float = perf_counter()
 
     print(f"Found working keys ({bin(key1)}, {bin(key2)}) in {end - start:.4f} seconds.")
-    with open("brute_force_time.txt", 'w') as f:
+    with open("times/brute_force_time.txt", 'w') as f:
         f.write(f"{end - start:.4f}")
 
     return

@@ -61,7 +61,7 @@ def main() -> None:
     seconds: str = f"{end - start:.4f}"
 
     print(f"Found working keys ({bin(key1)}, {bin(key2)}) in {seconds} seconds.")
-    with open("meet_in_the_middle_time.txt", 'w') as f:
+    with open("times/meet_in_the_middle_time.txt", 'w') as f:
         f.write(seconds)
 
     return
