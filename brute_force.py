@@ -1,4 +1,4 @@
-from src.sdes import dsdes_encipher_ECB
+from sdes.sdes import dsdes_encipher_ECB
 from time import perf_counter
 from typing import Dict, List, Tuple
 

@@ -1,4 +1,4 @@
-from src.sdes import *
+from sdes.sdes import *
 from typing import Dict, List, Tuple
 
 # Table A_1 (p, c) from answer Appendix A
