@@ -23,7 +23,7 @@
 
 ### Decryption of the text encrypted using CBC mode:
   * `"Congratulations on your success!"`
-  * Code for this can be found in test.py at line 178.
+  * Code for this can be found in main.py at line 189.
 
 ### A list of the S-DES weak keys:
   * `0b0000000000`; and,
